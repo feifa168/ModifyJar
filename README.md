@@ -1,0 +1,2 @@
+# ModifyJar
+Encrypt模块使用NativeEncrypt库加密jar包中指定的class文件，Decrypt模块使用NativeDecrypt库加载class时解密java字节码文件。
