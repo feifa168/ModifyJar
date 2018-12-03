@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="Encrypt:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Encrypt_jar</output-path>
+    <root id="root">
+      <element id="archive" name="Encrypt.jar">
+        <element id="module-output" name="Encrypt" />
+      </element>
+      <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+      <element id="library" level="project" name="Maven: junit:junit:4.13-beta-1" />
+      <element id="file-copy" path="$PROJECT_DIR$/Encrypt/libNativeEncrypt.dll" />
+    </root>
+  </artifact>
+</component>
