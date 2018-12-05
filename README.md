@@ -1,11 +1,29 @@
 ## 简介
 > ModifyJar包含两个模块Encrypt和Decrypt。需要配合[NativeEncrypt](https://github.com/feifa168/NativeEncrypt)工程和[NativeDecrypt](https://github.com/feifa168/NativeDecrypt)工程使用。
-* Encrypt模块使用NativeEncrypt库加密jar包中指定的class文件。
-* Decrypt模块使用NativeDecrypt库加载class时解密java字节码文件。
+* Encrypt模块使用NativeEncrypt库加密jar包中指定的class文件。使用dom4j解析xml。
+* ~~Decrypt模块使用NativeDecrypt库加载class时解密java字节码文件。~~，该功能用c++实现，请参见[NativeDecrypt](https://github.com/feifa168/NativeDecrypt)。
+
+## 依赖
+* 加密动态库[libNativeEncrypt](https://github.com/feifa168/NativeEncrypt)工程和[NativeDecrypt](https://github.com/feifa168/NativeDecrypt)
+* enc_config.xml，用于配置加密哪些字节码文件。
+* Dom4j+jaxen，用于解析xml。
 
 ## 用法
 * 加密
->java -jar NativeEncrypt.jar -src xxx.jar -dst xxx_encrypt.jar
+> java -jar NativeEncrypt.jar [-src xxx.jar -dst xxx_encrypt.jar] 参数可有可无，配合enc_config.xml使用。
+enc_config.xml格式如下
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<encrypt>
+    <src>src.jar</src>
+    <dst>src_encrypt.jar</dst>
+    <files>
+        <file type="package">com.shell.run</file>
+        <file type="package">com.ft.config</file>
+    </files>
+</encrypt>
+```
 * 解密
 >java -agentlib:libNativeDecrypt xxx_encrypt.jar paramers...
 

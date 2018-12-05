@@ -7,7 +7,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Encrypt/pom.xml" />
-        <option value="$PROJECT_DIR$/Decrypt/pom.xml" />
       </list>
     </option>
   </component>
