@@ -42,7 +42,13 @@ public class Encrypt {
     }
 
     public static void main(String[] args) throws Exception {
-        if ( !ParseEncConfig.parse("enc_config.xml") ) {
+        Map<String, String> map = getArgMap(args);
+        String xml = map.get("-xml");
+        if (null == xml) {
+            xml = "enc_config.xml";
+        }
+
+        if ( !ParseEncConfig.parse(xml) ) {
             System.out.println(ParseEncConfig.errMsg);
             return;
         } else {
@@ -56,8 +62,6 @@ public class Encrypt {
             }
             System.out.println(text.toString());
         }
-
-        Map<String, String> map = getArgMap(args);
 
         String src_name = map.get("-src");
         if (src_name == null) {

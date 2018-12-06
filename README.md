@@ -10,8 +10,8 @@
 
 ## 用法
 * 加密
-> java -jar NativeEncrypt.jar [-src xxx.jar -dst xxx_encrypt.jar] 参数可有可无，配合enc_config.xml使用。
-enc_config.xml格式如下
+>java -jar NativeEncrypt.jar [-xml config.xml -src xxx.jar -dst xxx_encrypt.jar] 参数可有可无，如果没有-xml字段则默认为enc_config.xml，不设置参数-src和-dst则使用xml中的src和dst字段，配合enc_config.xml使用。
+ enc_config.xml格式如下
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 
@@ -25,7 +25,7 @@ enc_config.xml格式如下
 </encrypt>
 ```
 * 解密
->java -agentlib:libNativeDecrypt xxx_encrypt.jar paramers...
+>java -agentlib:libNativeDecrypt[=config.xml] xxx_encrypt.jar paramers... 中括号若无内容则使用enc_config.xml。
 
 ## 原理
 > java agent 有三种方法加载动态库
