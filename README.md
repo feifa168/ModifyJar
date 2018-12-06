@@ -2,6 +2,7 @@
 > ModifyJar包含两个模块Encrypt和Decrypt。需要配合[NativeEncrypt](https://github.com/feifa168/NativeEncrypt)工程和[NativeDecrypt](https://github.com/feifa168/NativeDecrypt)工程使用。
 * Encrypt模块使用NativeEncrypt库加密jar包中指定的class文件。使用dom4j解析xml。
 * ~~Decrypt模块使用NativeDecrypt库加载class时解密java字节码文件。~~，该功能用c++实现，请参见[NativeDecrypt](https://github.com/feifa168/NativeDecrypt)。
+* Encrypt可以对自身进行加密，请使用加密后的jar包，具体使用参考用法。
 
 ## 依赖
 * 加密动态库[libNativeEncrypt](https://github.com/feifa168/NativeEncrypt)工程和[NativeDecrypt](https://github.com/feifa168/NativeDecrypt)
