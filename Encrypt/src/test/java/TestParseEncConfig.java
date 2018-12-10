@@ -1,7 +1,27 @@
 import com.ft.config.ParseEncConfig;
 import org.junit.Test;
 
+import java.util.Map;
+
 public class TestParseEncConfig {
+    @Test
+    public void testOsName() {
+
+        String osname = System.getProperty("os.name");
+        if (osname == null) {
+            osname = "Windows";
+        }
+        osname = osname.toLowerCase();
+        System.out.println(osname);
+
+        for ( Map.Entry<Object, Object> kv : System.getProperties().entrySet() ) {
+            System.out.println("name " + kv.getKey().toString() + "\t ---- \t value " + kv.getValue().toString() + "!!!!");
+        }
+//        for (Hashtable.Entry<String, String> kv : ps) {
+//
+//        }
+    }
+
     @Test
     public void testConfig() {
         if (ParseEncConfig.parse("enc_config.xml")) {

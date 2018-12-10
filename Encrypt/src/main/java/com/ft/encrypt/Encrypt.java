@@ -17,7 +17,17 @@ public class Encrypt {
     native byte[] encrypt(byte[] _buf);
 
     static {
-        System.loadLibrary("libNativeEncrypt");
+        String libName = "NativeEncrypt";
+        String osname = System.getProperty("os.name");
+        if (osname == null) {
+            osname = "windows";
+        }
+        osname = osname.toLowerCase();
+        if (osname.startsWith("windows")) {
+            System.loadLibrary("lib"+libName);
+        } else if (osname.startsWith("linux")) {
+            System.loadLibrary(libName);
+        }
     }
 
     // 获取参数
