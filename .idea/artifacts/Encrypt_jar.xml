@@ -10,8 +10,6 @@
       <element id="library" level="project" name="Maven: jaxen:jaxen:1.1.6" />
       <element id="library" level="project" name="Maven: org.dom4j:dom4j:2.1.1" />
       <element id="file-copy" path="$PROJECT_DIR$/Encrypt/libNativeEncrypt.dll" />
-      <element id="file-copy" path="$PROJECT_DIR$/Encrypt/encrypt.xml" />
-      <element id="file-copy" path="$PROJECT_DIR$/Encrypt/encrypt.bat" />
     </root>
   </artifact>
 </component>

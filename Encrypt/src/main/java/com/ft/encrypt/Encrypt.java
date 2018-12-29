@@ -65,6 +65,7 @@ public class Encrypt {
             StringBuilder text = new StringBuilder(128);
             text.append("src=").append(ParseEncConfig.config.src).append("\n")
                     .append("dst=").append(ParseEncConfig.config.dst).append("\n")
+                    .append("decxml=").append(ParseEncConfig.config.decxml).append("\n")
                     .append("loadall=").append(ParseEncConfig.config.encFile.loadall).append("\n")
                     .append("files\n");
             for (String s : ParseEncConfig.config.encFile.files) {
@@ -93,6 +94,22 @@ public class Encrypt {
             }
         } else if ( dst_name.equals(src_name) ) {
             dst_name = src_name.substring(0, src_name.length() - 4) + "_encrypt.jar";
+        }
+
+        String decxml = map.get("-decxml");
+        if (decxml == null) {
+            if ( (null != ParseEncConfig.config.decxml) && (ParseEncConfig.config.decxml.length() > 0) ) {
+                decxml = ParseEncConfig.config.decxml;
+            } else {
+                decxml = "dec_config.xml";
+            }
+        }
+        System.out.println("-xml is " + xml + "\n -src is " + src_name + "\n -dst is " + dst_name + "\n -decxml is " + decxml);
+
+        if (ParseEncConfig.createDecryptFile(decxml)) {
+            System.out.println("create file " + decxml);
+        } else {
+            System.out.print(ParseEncConfig.errMsg);
         }
 
         System.out.printf("encode jar file: [%s ==> %s ]\n", src_name, dst_name);

@@ -2,7 +2,8 @@
 
 <encrypt>
     <src>Encrypt.jar</src>
-    <dst>EncryptEnc.jar</dst>
+    <dst>encClass.jar</dst>
+    <decxml>dec_config.xml</decxml>
     <files>
         <file type="package">com.ft</file>
     </files>

@@ -22,5 +22,6 @@ public class ParamConfig {
     }
     public String src;
     public String dst;
+    public String decxml;
     public EncFile encFile = new EncFile();
 }

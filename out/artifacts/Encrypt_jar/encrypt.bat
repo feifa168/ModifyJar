@@ -1,1 +1,0 @@
-java -jar Encrypt.jar -xml encrypt.xml -src Encrypt.jar -dst EncryptEnc.jar
